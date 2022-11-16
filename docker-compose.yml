@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  ecocycle-api:
+    image: node:18-alpine
+    container_name: ecocycle-api
+    build:
+      context: .
+    command: npm run start:dev
+    env_file:
+      - .env
+    ports:
+      - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      ecocycle-network:
+    depends_on:
+      - ecocycle-mysql-server
+      
+  ecocycle-mysql-server:
+    image: ${DB_SERVER}
+    container_name: ecocycle-mysql-server
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    networks:
+      ecocycle-network:
+
+volumes:
+  mysql_data:
+
+networks:
+  ecocycle-network:
+    name: ecocycle-network
+
+  
