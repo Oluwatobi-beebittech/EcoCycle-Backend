@@ -1,3 +1,4 @@
+import { EcoChampion } from '@Utilities';
 import {
   Entity,
   Column,
@@ -7,10 +8,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-enum EcoChampion {
-  ECO_PROCESSOR = 'ECO_PROCESSOR',
-  ECO_COLLATOR = 'ECO_COLLATOR',
-}
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -18,7 +15,7 @@ export class User {
 
   @Column()
   @Generated('uuid')
-  userId: number;
+  userId: string;
 
   @Column({
     type: 'varchar',
@@ -54,13 +51,13 @@ export class User {
   @Column({
     type: 'enum',
     enum: EcoChampion,
-    default: EcoChampion.ECO_COLLATOR,
+    default: EcoChampion.ECO_COLLECTOR,
   })
   ecoChampion: string;
 
   @CreateDateColumn()
-  createdAt: string;
+  createdAt: Date;
 
   @UpdateDateColumn()
-  updatedAt: string;
+  updatedAt: Date;
 }

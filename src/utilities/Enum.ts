@@ -1,0 +1,4 @@
+export enum EcoChampion {
+  ECO_PROCESSOR = 'ECO_PROCESSOR',
+  ECO_COLLECTOR = 'ECO_COLLECTOR',
+}
