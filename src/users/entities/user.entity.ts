@@ -1,4 +1,5 @@
 import { EcoChampion } from '@Utilities';
+import * as bcrypt from 'bcrypt';
 import {
   Entity,
   Column,
@@ -6,10 +7,12 @@ import {
   Generated,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  BeforeInsert,
+  BaseEntity,
 } from 'typeorm';
 
 @Entity()
-export class User {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -60,4 +63,10 @@ export class User {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @BeforeInsert()
+  async setPassword() {
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
+  }
 }

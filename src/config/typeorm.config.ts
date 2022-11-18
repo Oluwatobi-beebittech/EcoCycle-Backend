@@ -20,6 +20,7 @@ export default class TypeOrmConfig {
       migrationsRun: JSON.parse(
         configService.get<string>('DB_MIGRATIONS_RUN_ON_START'),
       ) as boolean,
+      logging: true,
     };
   }
 }
@@ -44,4 +45,5 @@ export const typeOrmConfig: MysqlConnectionOptions = {
   migrations: [__dirname + '/../database/migrations/*{.ts,.js}'],
   migrationsTableName: 'ecocycle_migrations_table',
   migrationsRun: JSON.parse(process.env.DB_MIGRATIONS_RUN_ON_START) as boolean,
+  logging: true,
 };

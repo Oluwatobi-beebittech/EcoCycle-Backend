@@ -14,16 +14,19 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    await this.usersRepository.save(createUserDto);
-    return 'This action adds a new user';
+    return await this.usersRepository.create(createUserDto).save();
   }
 
   findAll() {
     return `This action returns all users`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(email: string): Exclude<CreateUserDto, 'id'> {
+    return {} as Exclude<CreateUserDto, 'id'>;
+  }
+
+  async getUserByEmail(email: string): Promise<User> {
+    return await this.usersRepository.findOne({ where: { email } });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
