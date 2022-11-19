@@ -1,4 +1,5 @@
-export type DbConfig = {
+type RailwayConfig = {
+  APP_SERVER_PORT: string;
   DB_HOST: string;
   DB_PORT: string;
   DB_USER: string;
@@ -6,7 +7,8 @@ export type DbConfig = {
   DB_DATABASE: string;
 };
 
-export const RailwayConfig: DbConfig = {
+export const RailwayConfig: RailwayConfig = {
+  APP_SERVER_PORT: process.env.PORT,
   DB_HOST: process.env.MYSQLHOST,
   DB_PORT: process.env.MYSQLPORT,
   DB_USER: process.env.MYSQLUSER,

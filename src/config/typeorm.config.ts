@@ -5,12 +5,9 @@ import {
 } from '@nestjs/typeorm';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 
-import { RailwayConfig } from './railway.config';
+import { EnvConfig } from './environment.config';
 
-const IS_PROD = JSON.parse(process.env.IS_PROD);
-const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE } = IS_PROD
-  ? RailwayConfig
-  : process.env;
+const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE } = EnvConfig;
 
 export const typeOrmConfig: MysqlConnectionOptions = {
   type: 'mysql',
