@@ -26,11 +26,11 @@ export class ReaderService {
       this.configService.get<string>('ECO_TOKEN_DECIMALS'),
     );
 
-    const tokenBalancesData = await this.alchemy.core.getTokenBalances(
+    const { address, tokenBalances } = await this.alchemy.core.getTokenBalances(
       walletAddress,
       [ecoTokenContractAddress],
     );
-    const { tokenBalance } = tokenBalancesData.tokenBalances.find(
+    const { tokenBalance } = tokenBalances.find(
       ({ contractAddress }) => contractAddress === ecoTokenContractAddress,
     );
     const formattedTokenBalance = ethers.utils.formatUnits(
@@ -39,7 +39,7 @@ export class ReaderService {
     );
 
     return {
-      walletAddress: tokenBalancesData.address,
+      walletAddress: address,
       tokenBalance: formattedTokenBalance,
     };
   }
