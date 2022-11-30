@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { ReaderModule } from './blockchainReader/reader.module';
 import { typeOrmConfigAsync } from './config/typeorm.config';
 import { UsersModule } from './users/users.module';
 
@@ -16,6 +17,7 @@ import { UsersModule } from './users/users.module';
     }),
     TypeOrmModule.forRootAsync(typeOrmConfigAsync),
     UsersModule,
+    ReaderModule,
     AuthModule,
   ],
   controllers: [AppController],

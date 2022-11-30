@@ -13,7 +13,7 @@ services:
       - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - node_modules_data:/usr/src/app/node_modules
     networks:
       ecocycle-network:
     depends_on:
@@ -33,6 +33,7 @@ services:
 
 volumes:
   mysql_data:
+  node_modules_data:
 
 networks:
   ecocycle-network:
