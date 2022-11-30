@@ -1,6 +1,4 @@
-import { IsNotEmpty } from 'class-validator';
-
 export class GetEcoTokenBalanceDto {
-  @IsNotEmpty()
+  tokenBalance: string;
   walletAddress: string;
 }
