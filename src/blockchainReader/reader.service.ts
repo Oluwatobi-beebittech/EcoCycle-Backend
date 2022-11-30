@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { Alchemy, Network } from 'alchemy-sdk';
+import { Alchemy, AlchemySettings, Network } from 'alchemy-sdk';
 import { ethers } from 'ethers';
 
 import { GetEcoTokenBalanceDto } from './dto/get-ecotoken-balance.dto';
 
 @Injectable()
 export class ReaderService {
-  private config;
-  private alchemy;
+  private config: AlchemySettings;
+  private alchemy: Alchemy;
 
   constructor(private configService: ConfigService) {
     this.config = {
