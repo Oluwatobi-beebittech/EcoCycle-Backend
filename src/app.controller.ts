@@ -1,4 +1,11 @@
-import { Controller, Get, Post, UseGuards, Request } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpCode,
+  Post,
+  UseGuards,
+  Request,
+} from '@nestjs/common';
 
 import { AppService } from './app.service';
 import { AuthService } from './auth/auth.service';
@@ -26,8 +33,9 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('profile')
-  getProfile(@Request() req) {
-    return req.user;
+  @Get('auth/verify')
+  @HttpCode(204)
+  verifyAuth() {
+    return {};
   }
 }

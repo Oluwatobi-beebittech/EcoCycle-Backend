@@ -7,6 +7,8 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { ReaderModule } from './blockchainReader/reader.module';
 import { typeOrmConfigAsync } from './config/typeorm.config';
+import { EcoPayModule } from './ecopay/ecopay.module';
+import { LazerPayKeyModule } from './lazerPayKey/lazerPayKey.module';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -19,6 +21,8 @@ import { UsersModule } from './users/users.module';
     UsersModule,
     ReaderModule,
     AuthModule,
+    EcoPayModule,
+    LazerPayKeyModule,
   ],
   controllers: [AppController],
   providers: [AppService],

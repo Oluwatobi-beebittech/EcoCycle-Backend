@@ -4,20 +4,19 @@ import {
   Entity,
   Column,
   CreateDateColumn,
-  Generated,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
   BeforeInsert,
   BaseEntity,
+  OneToOne,
+  JoinColumn,
 } from 'typeorm';
+
+import { LazerPayKey } from '../../lazerPayKey/entities';
 
 @Entity()
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  @Generated('uuid')
+  @PrimaryGeneratedColumn('uuid')
   userId: string;
 
   @Column({
@@ -69,4 +68,8 @@ export class User extends BaseEntity {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
   }
+
+  @OneToOne(() => LazerPayKey)
+  @JoinColumn()
+  lazerPayKey: LazerPayKey;
 }
