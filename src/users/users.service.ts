@@ -21,8 +21,25 @@ export class UsersService {
     return `This action returns all users`;
   }
 
-  findOne(email: string): Exclude<CreateUserDto, 'id'> {
-    return {} as Exclude<CreateUserDto, 'id'>;
+  async findOne(email: string) {
+    return await this.usersRepository.findOne({
+      select: {
+        userId: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        phoneNumber: true,
+        ecoChampion: true,
+        lazerPayKey: {
+          publicKey: true,
+          secretKey: true,
+        },
+      },
+      where: { email },
+      relations: {
+        lazerPayKey: true,
+      },
+    });
   }
 
   async getUserByEmail(email: string): Promise<User> {

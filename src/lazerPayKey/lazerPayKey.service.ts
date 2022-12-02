@@ -16,11 +16,25 @@ export class LazerPayKeyService {
     private userRepository: Repository<User>,
   ) {}
 
+  async retrieveApiKeys(userId: string): Promise<CreateLazerPayKeyDto> {
+    const { lazerPayKey } = await this.userRepository.findOne({
+      where: { userId },
+      relations: {
+        lazerPayKey: true,
+      },
+    });
+
+    return {
+      publicKey: lazerPayKey?.publicKey ?? '',
+      secretKey: lazerPayKey?.secretKey ?? '',
+    };
+  }
+
   async create(
     saveLazerPayKeyDto: CreateLazerPayKeyDto,
     userId: string,
   ): Promise<{
-    statusMessage: string;
+    statusText: string;
   }> {
     const lazerPayKey = this.lazerPayKeyRepository.create(saveLazerPayKeyDto);
     await lazerPayKey.save();
@@ -31,10 +45,10 @@ export class LazerPayKeyService {
 
     return Boolean(affected)
       ? {
-          statusMessage: 'Tokens saved successfully',
+          statusText: 'Tokens saved successfully',
         }
       : {
-          statusMessage: 'Tokens could not be saved',
+          statusText: 'Tokens could not be saved',
         };
   }
 
@@ -42,7 +56,7 @@ export class LazerPayKeyService {
     updateLazerPayKeyDto: UpdateLazerPayKeyDto,
     userId: string,
   ): Promise<{
-    statusMessage: string;
+    statusText: string;
   }> {
     const { lazerPayKey } = await this.userRepository.findOne({
       where: { userId },
@@ -57,10 +71,10 @@ export class LazerPayKeyService {
 
     return Boolean(affected)
       ? {
-          statusMessage: 'Tokens updated successfully',
+          statusText: 'Tokens updated successfully',
         }
       : {
-          statusMessage: 'Tokens could not be updated',
+          statusText: 'Tokens could not be updated',
         };
   }
 }

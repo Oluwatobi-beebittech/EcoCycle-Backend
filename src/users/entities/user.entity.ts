@@ -69,7 +69,9 @@ export class User extends BaseEntity {
     this.password = await bcrypt.hash(this.password, salt);
   }
 
-  @OneToOne(() => LazerPayKey)
+  @OneToOne(() => LazerPayKey, {
+    onDelete: 'SET NULL',
+  })
   @JoinColumn()
   lazerPayKey: LazerPayKey;
 }

@@ -5,10 +5,11 @@ import { AppModule } from './app.module';
 import { EnvConfig } from './config/environment.config';
 
 async function bootstrap() {
+  const { APP_SERVER_PORT, FRONTEND_BASE_URL } = EnvConfig;
   const app = await NestFactory.create(AppModule, {
     logger: console,
     cors: {
-      origin: ['http://localhost:3000'],
+      origin: [FRONTEND_BASE_URL],
       credentials: true,
     },
   });
@@ -17,7 +18,6 @@ async function bootstrap() {
   app.enableVersioning({
     type: VersioningType.URI,
   });
-  const { APP_SERVER_PORT } = EnvConfig;
   await app.listen(APP_SERVER_PORT);
 }
 

@@ -4,8 +4,6 @@ import {
   Post,
   Body,
   Patch,
-  Param,
-  Delete,
   Request,
   UseGuards,
 } from '@nestjs/common';
@@ -23,12 +21,20 @@ import { LazerPayKeyService } from './lazerPayKey.service';
 export class LazerPayKeyController {
   constructor(private readonly lazerPayKeyService: LazerPayKeyService) {}
 
+  @Get()
+  async retreiveApiKeys(@Request() req) {
+    const {
+      user: { userId },
+    } = req;
+    return await this.lazerPayKeyService.retrieveApiKeys(userId);
+  }
+
   @Post()
   async create(
     @Body() createLazerPayKeyDto: CreateLazerPayKeyDto,
     @Request() req,
   ): Promise<{
-    statusMessage: string;
+    statusText: string;
   }> {
     const {
       user: { userId },
@@ -41,7 +47,7 @@ export class LazerPayKeyController {
     @Body() updateLazerPayKeyDto: UpdateLazerPayKeyDto,
     @Request() req,
   ): Promise<{
-    statusMessage: string;
+    statusText: string;
   }> {
     const {
       user: { userId },
