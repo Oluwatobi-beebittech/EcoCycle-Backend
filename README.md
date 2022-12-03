@@ -12,6 +12,10 @@ This is the backend repository of the EcoCycle application.
 - Alchemy SDK
 - Ethers JS
 
+## :gem: EcoCycle Application Repositories
+- [**EcoCycle Frontend**](https://github.com/Oluwatobi-beebittech/EcoCycle#readme) https://github.com/Oluwatobi-beebittech/EcoCycle#readme
+- [**EcoCycle Backend**](https://github.com/Oluwatobi-beebittech/EcoCycle-Backend#readme) https://github.com/Oluwatobi-beebittech/EcoCycle-Backend#readme
+- [**EcoCycle Smart Contract (EcoToken)**](https://github.com/Oluwatobi-beebittech/EcoToken#readme) https://github.com/Oluwatobi-beebittech/EcoToken#readme
 ## :control_knobs: Smart Contract Details
 - Token Name: EcoToken (ECO)
 - Initial Supply: 20,000,000
@@ -19,12 +23,7 @@ This is the backend repository of the EcoCycle application.
 - Contract Deployed Address: 0x300aca0433775D4848675D8876c9c604BC0887F0
 - Contract Verified at: https://mumbai.polygonscan.com/address/0x300aca0433775D4848675D8876c9c604BC0887F0#code
 
-## :gem: EcoCycle Application Repositories
-- [**EcoCycle Frontend**](https://github.com/Oluwatobi-beebittech/EcoCycle#readme) https://github.com/Oluwatobi-beebittech/EcoCycle#readme
-- [**EcoCycle Backend**](https://github.com/Oluwatobi-beebittech/EcoCycle-Backend#readme) https://github.com/Oluwatobi-beebittech/EcoCycle-Backend#readme
-- [**EcoCycle Smart Contract (EcoToken)**](https://github.com/Oluwatobi-beebittech/EcoToken#readme) https://github.com/Oluwatobi-beebittech/EcoToken#readme
-
-## Getting Started
+## Getting Started (Backend)
 1. Clone repo using `git clone https://github.com/Oluwatobi-beebittech/EcoCycle-Backend.git`.
 2. Ensure [Node Version Manager(NVM)](https://github.com/nvm-sh/nvm) is installed. The version of node used is 16.15.0.
 3. Run `nvm use` to use node version 16.15.0.
