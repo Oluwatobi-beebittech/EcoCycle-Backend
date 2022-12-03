@@ -20,9 +20,9 @@ This is the backend repository of the EcoCycle application.
 - Contract Verified at: https://mumbai.polygonscan.com/address/0x300aca0433775D4848675D8876c9c604BC0887F0#code
 
 ## :gem: EcoCycle Application Repositories
-- [**EcoCycle Frontend**](https://github.com/Oluwatobi-beebittech/EcoCycle#readme)
-- [**EcoCycle Backend**](https://github.com/Oluwatobi-beebittech/EcoCycle-Backend#readme)
-- [**EcoCycle Smart Contract (EcoToken)**](https://github.com/Oluwatobi-beebittech/EcoToken#readme)
+- [**EcoCycle Frontend**](https://github.com/Oluwatobi-beebittech/EcoCycle#readme)https://github.com/Oluwatobi-beebittech/EcoCycle#readme
+- [**EcoCycle Backend**](https://github.com/Oluwatobi-beebittech/EcoCycle-Backend#readme)https://github.com/Oluwatobi-beebittech/EcoCycle-Backend#readme
+- [**EcoCycle Smart Contract (EcoToken)**](https://github.com/Oluwatobi-beebittech/EcoToken#readme)https://github.com/Oluwatobi-beebittech/EcoToken#readme
 
 ## Getting Started
 1. Clone repo using `git clone https://github.com/Oluwatobi-beebittech/EcoCycle-Backend.git`.
@@ -33,6 +33,7 @@ This is the backend repository of the EcoCycle application.
 6. Create a `.env` file and insert the appropriate values for each environment variable. Check the `.env.example` file for the environment keys needed.
 7. Run `docker compose build`.
 8. Once the build is done, run `docker compose up` to power on the application.
+9. Visit `http://localhost:3001` to see the app running
 
 `.env.example sample`
 ```
@@ -44,7 +45,7 @@ DB_PORT=3306
 DB_USER=root
 DB_PASSWORD=root
 DB_DATABASE=ecocycle_db
-DB_MIGRATIONS_RUN_ON_START=false
+DB_MIGRATIONS_RUN_ON_START=true
 IS_PROD=false
 JWT_SECRET=secret
 ECO_ALCHEMY_API_KEY=
