@@ -1,73 +1,56 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+![EcoCycle Banner](https://res.cloudinary.com/dfybu7w8o/image/upload/v1670102878/ecocycle_banner_728X90_zc2ftp.png)
+# :recycle: :seedling: EcoCycle (Backend)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+EcoCycle is a waste recycling-focused service which seeks to harmonise, reward, and empower actors involved in waste recycling and climate change mitigation, especially in Africa.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This is the backend repository of the EcoCycle application.
 
-## Description
+## :hammer_and_wrench: Built with
+- Nest JS
+- TypeORM
+- Typescript
+- Alchemy SDK
+- Ethers JS
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## :control_knobs: Smart Contract Details
+- Token Name: EcoToken (ECO)
+- Initial Supply: 20,000,000
+- Decimals: 2
+- Contract Deployed Address: 0x300aca0433775D4848675D8876c9c604BC0887F0
+- Contract Verified at: https://mumbai.polygonscan.com/address/0x300aca0433775D4848675D8876c9c604BC0887F0#code
 
-## Installation
+## :gem: EcoCycle Application Repositories
+- [**EcoCycle Frontend**](https://github.com/Oluwatobi-beebittech/EcoCycle#readme)
+- [**EcoCycle Backend**](https://github.com/Oluwatobi-beebittech/EcoCycle-Backend#readme)
+- [**EcoCycle Smart Contract (EcoToken)**](https://github.com/Oluwatobi-beebittech/EcoToken#readme)
 
-```bash
-$ npm install
+## Getting Started
+1. Clone repo using `git clone https://github.com/Oluwatobi-beebittech/EcoCycle-Backend.git`.
+2. Ensure [Node Version Manager(NVM)](https://github.com/nvm-sh/nvm) is installed. The version of node used is 16.15.0.
+3. Run `nvm use` to use node version 16.15.0.
+4. Install all the application's packages using `npm install`.
+5. Ensure you have docker desktop application installed. This application is dockerised for easy configuration and setup across devices and environments.
+6. Create a `.env` file and insert the appropriate values for each environment variable. Check the `.env.example` file for the environment keys needed.
+7. Run `docker compose build`.
+8. Once the build is done, run `docker compose up` to power on the application.
+
+`.env.example sample`
 ```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+APP_SERVER_PORT=3001
+DB_TYPE=mariadb
+DB_SERVER=mariadb:10.5.8
+DB_HOST=ecocycle-mysql-server
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=root
+DB_DATABASE=ecocycle_db
+DB_MIGRATIONS_RUN_ON_START=false
+IS_PROD=false
+JWT_SECRET=secret
+ECO_ALCHEMY_API_KEY=
+ECO_ALCHEMY_NETWORK_URL=
+ECO_ALCHEMY_NETWORK_NAME=maticmum
+ECO_TOKEN_CONTRACT_ADDRESS=0x300aca0433775D4848675D8876c9c604BC0887F0
+ECO_TOKEN_DECIMALS=2
+FRONTEND_BASE_URL=http://localhost:3000
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
