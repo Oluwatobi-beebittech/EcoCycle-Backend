@@ -51,12 +51,20 @@ export class LazerPayOpsService {
     if (!this.publicKey || !this.secretKey) await this.getLazerApiKeys(userId);
     const walletBalanceRoute = 'wallet/balance';
     const fullUrl = `${this.lazerPayBaseApiUrl}${walletBalanceRoute}`;
-
-    const balanceResponse = await this.httpService
-      .get(fullUrl, {
-        ...this.getHttpHeaders(),
-      })
-      .pipe(map((response) => response.data));
+    console.log({
+      pk: this.publicKey,
+      sk: this.secretKey,
+    });
+    let balanceResponse;
+    try {
+      balanceResponse = await this.httpService
+        .get(fullUrl, {
+          ...this.getHttpHeaders(),
+        })
+        .pipe(map((response) => response.data));
+    } catch (error) {
+      console.log('error');
+    }
 
     return balanceResponse;
   }
