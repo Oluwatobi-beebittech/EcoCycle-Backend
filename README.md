@@ -12,7 +12,7 @@ This is the backend repository of the EcoCycle application.
 - Alchemy SDK
 - Ethers JS
 ### Third-Party Integrations
-- Lazerpay, for payments in stablecoins. Currently, users of EcoCycle need to register seperately on Lazerpay and then link their public and secret keys to EcoCycle manually. A partnership with Lazerpay will ensure users only signup to EcoCycle while EcoCycle handles the user's registration on Lazerpay. Consequently, the process will be seamless for the user compared to the current setup.
+- Lazerpay, for payments in crypto stablecoins. Currently, users of EcoCycle need to register seperately on Lazerpay and then link their public and secret keys to EcoCycle manually. A partnership with Lazerpay will ensure users only signup to EcoCycle while EcoCycle handles the user's registration on Lazerpay. Consequently, the process will be seamless for the user compared to the current setup.
 
 ## :gem: EcoCycle Application Repositories
 - [**EcoCycle Frontend**](https://github.com/Oluwatobi-beebittech/EcoCycle#readme) https://github.com/Oluwatobi-beebittech/EcoCycle#readme
