@@ -53,20 +53,15 @@ export class LazerPayOpsService {
     if (!this.publicKey || !this.secretKey) await this.getLazerApiKeys(userId);
     const walletBalanceRoute = '/wallet/balance';
     const fullUrl = `${this.lazerPayBaseApiUrl}${walletBalanceRoute}`;
-    console.log({ fullUrl });
+    console.log({ fullUrl, userId, coin });
+    const balanceResponse = await this.httpService
+      .get(fullUrl, {
+        ...this.getHttpHeaders(),
+        params: { coin },
+      })
+      .pipe(map((response) => response.data));
 
-    try {
-      const balanceResponse = await this.httpService
-        .get(fullUrl, {
-          ...this.getHttpHeaders(),
-          params: { coin },
-        })
-        .pipe(map((response) => response.data));
-    } catch (error) {
-      console.log(error);
-    }
-
-    return {} as Observable<GetStableCoinBalanceDto>;
+    return balanceResponse;
   }
 
   async getStableCoinFundingAddress(
