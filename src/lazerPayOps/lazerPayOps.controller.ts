@@ -2,7 +2,8 @@ import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { GetStableCoinsBalanceDto } from './dto/get-stable-coins-balance.dto';
+import { GetStableCoinBalanceDto } from './dto/get-stable-coin-balance.dto';
+import { GetStableCoinFundingAddressDto } from './dto/get-stable-coin-funding-address.dto';
 import { LazerPayOpsService } from './lazerPayOps.service';
 
 @UseGuards(JwtAuthGuard)
@@ -14,12 +15,27 @@ export class LazerPayOpsController {
   constructor(private readonly lazerPayOpsService: LazerPayOpsService) {}
 
   @Get('/tokens/balance')
-  async getTokensBalance(
+  async getStableCoinBalance(
     @Request() req,
-  ): Promise<Observable<GetStableCoinsBalanceDto>> {
+  ): Promise<Observable<GetStableCoinBalanceDto>> {
     const {
       user: { userId },
+      params: { coin },
     } = req;
-    return await this.lazerPayOpsService.getTokensBalance(userId);
+    return await this.lazerPayOpsService.getStableCoinBalance(userId, coin);
+  }
+
+  @Get('/tokens/address')
+  async getStableCoinFundingAddress(
+    @Request() req,
+  ): Promise<Observable<GetStableCoinFundingAddressDto>> {
+    const {
+      user: { userId },
+      params: { coin },
+    } = req;
+    return await this.lazerPayOpsService.getStableCoinFundingAddress(
+      userId,
+      coin,
+    );
   }
 }

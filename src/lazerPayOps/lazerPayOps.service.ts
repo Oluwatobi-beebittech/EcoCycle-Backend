@@ -6,7 +6,8 @@ import { map, Observable } from 'rxjs';
 import { Repository } from 'typeorm';
 
 import { User } from '../users/entities';
-import { GetStableCoinsBalanceDto } from './dto/get-stable-coins-balance.dto';
+import { GetStableCoinBalanceDto } from './dto/get-stable-coin-balance.dto';
+import { GetStableCoinFundingAddressDto } from './dto/get-stable-coin-funding-address.dto';
 
 @Injectable()
 export class LazerPayOpsService {
@@ -45,27 +46,39 @@ export class LazerPayOpsService {
     };
   }
 
-  async getTokensBalance(
+  async getStableCoinBalance(
     userId: string,
-  ): Promise<Observable<GetStableCoinsBalanceDto>> {
+    coin: string,
+  ): Promise<Observable<GetStableCoinBalanceDto>> {
     if (!this.publicKey || !this.secretKey) await this.getLazerApiKeys(userId);
-    const walletBalanceRoute = 'wallet/balance';
+    const walletBalanceRoute = '/wallet/balance';
     const fullUrl = `${this.lazerPayBaseApiUrl}${walletBalanceRoute}`;
-    console.log({
-      pk: this.publicKey,
-      sk: this.secretKey,
-    });
-    let balanceResponse;
-    try {
-      balanceResponse = await this.httpService
-        .get(fullUrl, {
-          ...this.getHttpHeaders(),
-        })
-        .pipe(map((response) => response.data));
-    } catch (error) {
-      console.log('error');
-    }
+
+    const balanceResponse = await this.httpService
+      .get(fullUrl, {
+        ...this.getHttpHeaders(),
+        params: { coin },
+      })
+      .pipe(map((response) => response.data));
 
     return balanceResponse;
+  }
+
+  async getStableCoinFundingAddress(
+    userId: string,
+    coin: string,
+  ): Promise<Observable<GetStableCoinFundingAddressDto>> {
+    if (!this.publicKey || !this.secretKey) await this.getLazerApiKeys(userId);
+    const fundingAddressRoute = '/crypto/funding/address';
+    const fullUrl = `${this.lazerPayBaseApiUrl}${fundingAddressRoute}`;
+
+    const fundingAddressResponse = await this.httpService
+      .get(fullUrl, {
+        ...this.getHttpHeaders(),
+        params: { coin },
+      })
+      .pipe(map((response) => response.data));
+
+    return fundingAddressResponse;
   }
 }
