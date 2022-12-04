@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Body,
-  Get,
-  Request,
-  Post,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Body, Request, Post, UseGuards } from '@nestjs/common';
 
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CreatePaymentDto } from './dto/create-payment.dto';
