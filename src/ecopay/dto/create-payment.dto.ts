@@ -11,7 +11,9 @@ export class CreatePaymentDto {
   paymentType: string;
 
   @IsNotEmpty()
-  receiverAddress: string;
+  receiverEcoTokenAddress: string;
+
+  receiverBEP20Address: string;
 
   additionalNote?: string | undefined;
 
