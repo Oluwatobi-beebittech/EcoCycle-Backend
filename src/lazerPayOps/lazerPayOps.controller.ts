@@ -1,4 +1,4 @@
-import { Controller, Get, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Request, UseGuards } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -20,8 +20,9 @@ export class LazerPayOpsController {
   ): Promise<Observable<GetStableCoinBalanceDto>> {
     const {
       user: { userId },
-      params: { coin },
+      query: { coin },
     } = req;
+
     return await this.lazerPayOpsService.getStableCoinBalance(userId, coin);
   }
 
@@ -31,7 +32,7 @@ export class LazerPayOpsController {
   ): Promise<Observable<GetStableCoinFundingAddressDto>> {
     const {
       user: { userId },
-      params: { coin },
+      query: { coin },
     } = req;
     return await this.lazerPayOpsService.getStableCoinFundingAddress(
       userId,

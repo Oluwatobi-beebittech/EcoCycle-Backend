@@ -53,13 +53,13 @@ export class LazerPayOpsService {
     if (!this.publicKey || !this.secretKey) await this.getLazerApiKeys(userId);
     const walletBalanceRoute = '/wallet/balance';
     const fullUrl = `${this.lazerPayBaseApiUrl}${walletBalanceRoute}`;
-    console.log({ fullUrl, userId, coin });
+
     const balanceResponse = await this.httpService
       .get(fullUrl, {
         ...this.getHttpHeaders(),
         params: { coin },
       })
-      .pipe(map((response) => response.data));
+      .pipe(map((response) => response.data.data));
 
     return balanceResponse;
   }
@@ -77,7 +77,7 @@ export class LazerPayOpsService {
         ...this.getHttpHeaders(),
         params: { coin },
       })
-      .pipe(map((response) => response.data));
+      .pipe(map((response) => response.data.data));
 
     return fundingAddressResponse;
   }
