@@ -1,8 +1,8 @@
 import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { GetEcoTokenBalanceDto } from './dto/get-ecotoken-balance.dto';
 import { ReaderService } from './reader.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller({

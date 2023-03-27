@@ -5,8 +5,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { map, Observable } from 'rxjs';
 import { Repository } from 'typeorm';
 
-import { User } from '../users/entities';
 import { CreatePaymentDto } from './dto/create-payment.dto';
+import { User } from '../users/entities';
 
 @Injectable()
 export class EcoPayService {

@@ -1,8 +1,8 @@
 import { Controller, Body, Request, Post, UseGuards } from '@nestjs/common';
 
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CreatePaymentDto } from './dto/create-payment.dto';
 import { EcoPayService } from './ecopay.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller({

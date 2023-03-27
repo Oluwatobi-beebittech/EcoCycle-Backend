@@ -33,7 +33,7 @@ export class ReaderService {
     const { tokenBalance } = tokenBalances.find(
       ({ contractAddress }) => contractAddress === ecoTokenContractAddress,
     );
-    const formattedTokenBalance = ethers.utils.formatUnits(
+    const formattedTokenBalance = ethers.formatUnits(
       tokenBalance,
       ecoTokenDecimals,
     );
