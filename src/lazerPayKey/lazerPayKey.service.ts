@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { User } from '../users/entities';
 import { CreateLazerPayKeyDto } from './dto/create-lazerPay-key.dto';
 import { UpdateLazerPayKeyDto } from './dto/update-lazerPay-key.dto';
 import { LazerPayKey } from './entities';
+import { User } from '../users/entities';
 
 @Injectable()
 export class LazerPayKeyService {

@@ -1,10 +1,10 @@
 import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { GetStableCoinBalanceDto } from './dto/get-stable-coin-balance.dto';
 import { GetStableCoinFundingAddressDto } from './dto/get-stable-coin-funding-address.dto';
 import { LazerPayOpsService } from './lazerPayOps.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller({

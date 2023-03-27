@@ -5,9 +5,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { map, Observable } from 'rxjs';
 import { Repository } from 'typeorm';
 
-import { User } from '../users/entities';
 import { GetStableCoinBalanceDto } from './dto/get-stable-coin-balance.dto';
 import { GetStableCoinFundingAddressDto } from './dto/get-stable-coin-funding-address.dto';
+import { User } from '../users/entities';
 
 @Injectable()
 export class LazerPayOpsService {
