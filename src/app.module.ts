@@ -5,12 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { ReaderModule } from './blockchainReader/reader.module';
 import { typeOrmConfigAsync } from './config/typeorm.config';
-import { EcoPayModule } from './ecopay/ecopay.module';
-import { LazerPayKeyModule } from './lazerPayKey/lazerPayKey.module';
-import { LazerPayOpsModule } from './lazerPayOps/lazerPayOps.module';
-import { UsersModule } from './users/users.module';
+import { ModelsModule } from './models/models.module';
 
 @Module({
   imports: [
@@ -19,12 +15,8 @@ import { UsersModule } from './users/users.module';
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync(typeOrmConfigAsync),
-    UsersModule,
-    ReaderModule,
     AuthModule,
-    EcoPayModule,
-    LazerPayKeyModule,
-    LazerPayOpsModule,
+    ModelsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

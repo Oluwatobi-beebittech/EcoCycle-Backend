@@ -23,6 +23,6 @@
       "@Utilities": ["src/utilities/"],
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*/*.ts", "**/*/*.tsx"],
   "exclude": ["node_modules"]
 }
