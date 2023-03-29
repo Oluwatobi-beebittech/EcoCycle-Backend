@@ -11,7 +11,7 @@ import {
 import { CreateLazerPayKeyDto } from './dto/create-lazerPay-key.dto';
 import { UpdateLazerPayKeyDto } from './dto/update-lazerPay-key.dto';
 import { LazerPayKeyService } from './lazerPayKey.service';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller({

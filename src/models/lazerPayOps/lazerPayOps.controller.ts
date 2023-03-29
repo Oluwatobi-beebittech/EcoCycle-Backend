@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { GetStableCoinBalanceDto } from './dto/get-stable-coin-balance.dto';
 import { GetStableCoinFundingAddressDto } from './dto/get-stable-coin-funding-address.dto';
 import { LazerPayOpsService } from './lazerPayOps.service';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller({
