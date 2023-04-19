@@ -9,7 +9,6 @@ This is the backend repository of the EcoCycle application.
 - Nest JS
 - TypeORM
 - Typescript
-- Alchemy SDK
 - Ethers JS
 ### Third-Party Integrations
 - - **Lazerpay**, for payments in stablecoins. Lazerpay will enable EcoCycle users topup their accounts using their country currency, withdraw funds to local bank accounts, and manage EcoProduct listings.
